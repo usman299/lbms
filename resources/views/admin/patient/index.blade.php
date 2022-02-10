@@ -69,7 +69,7 @@
                                            </td>
 
                                         <td>
-                                            <a href="#"  class="btn btn-sm btn-success" data-toggle="tooltip" title="View">
+                                            <a href="{{route('patient.show', ['id' => $row->id])}}" class="btn btn-sm btn-success" data-toggle="tooltip" title="View">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         </td>

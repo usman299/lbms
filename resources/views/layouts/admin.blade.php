@@ -93,7 +93,7 @@
                         <a href="{{route('admin.lab.index')}}" class="nav-link ">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Lab attendent
+                                Laboratories
                             </p>
                         </a>
 

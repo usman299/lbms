@@ -29,5 +29,8 @@ Route::post('/admin/lab/store', 'Admin\AdminController@labStore')->name('admin.l
 
 Route::get('/patients', 'Admin\PatientController@index')->name('patients');
 Route::get('/patient/create', 'Admin\PatientController@create')->name('patient.create');
+Route::get('/patient/show/{id}', 'Admin\PatientController@show')->name('patient.show');
+Route::get('/patient/status/{id}', 'Admin\PatientController@statusView')->name('patients.status');
+Route::get('/patient/status/{id}/{status}', 'Admin\PatientController@status')->name('patient.status');
 Route::post('/patient/store', 'Admin\PatientController@store')->name('patient.store');
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        if (Auth::user()->role == 0){
+            $users = User::where('role', '2')->get();
+        }else{
+            $users = User::where('role', '2')->where('creator_id', Auth::user()->id)->get();
+        }
+        $labortaries = User::where('role', '1')->get();
+        return view('admin.index', compact('users','labortaries'));
     }
 }

@@ -39,7 +39,8 @@
                                         <th>Email</th>
                                         <th>Phone#</th>
                                         <th>Business Name</th>
-                                        <th>Action</th>
+                                        <th>Address</th>
+{{--                                        <th>Action</th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -49,14 +50,14 @@
                                             <td>{{$row->fname.' '.$row->lname}}</td>
                                             <td>{{$row->email}}</td>
                                             <td>{{$row->phone}}</td>
-
                                             <td>{{$row->business_name}}</td>
+                                            <td>{{$row->address1}}</td>
 
-                                            <td>
-                                                <a href="#" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" title="edit">
-                                                    <i class="fa fa-times"></i>
-                                                </a>
-                                            </td>
+{{--                                            <td>--}}
+{{--                                                <a href="#" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" title="edit">--}}
+{{--                                                    <i class="fa fa-times"></i>--}}
+{{--                                                </a>--}}
+{{--                                            </td>--}}
                                         </tr>
                                     @endforeach
                                     </tbody>

@@ -11,7 +11,21 @@ use Illuminate\Support\Facades\Hash;
 class PatientController extends Controller
 {
     public function index(){
-        $users = User::where('role', '2')->where('creator_id', Auth::user()->id)->get();
+        if (Auth::user()->role == 0){
+            $users = User::where('role', '2')->get();
+        }else{
+            $users = User::where('role', '2')->where('creator_id', Auth::user()->id)->get();
+        }
+
+        return view('admin.patient.index', compact('users'));
+    }
+    public function statusView($id){
+        if (Auth::user()->role == 0){
+            $users = User::where('role', '2')->where('status', $id)->get();
+        }else{
+            $users = User::where('role', '2')->where('status', $id)->where('creator_id', Auth::user()->id)->get();
+        }
+
         return view('admin.patient.index', compact('users'));
     }
     public function create(){
@@ -46,6 +60,20 @@ class PatientController extends Controller
         $user->save();
         $notification=array(
             'messege'=>'User Added',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+    public function show($id){
+        $user = User::find($id);
+        return view('admin.patient.show', compact('user'));
+    }
+    public function status($id, $status){
+        $user = User::find($id);
+        $user->status = $status;
+        $user->update();
+        $notification=array(
+            'messege'=>'Status Update Successsfully',
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);

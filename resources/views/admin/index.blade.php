@@ -117,5 +117,15 @@
 
             <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-4">
+                    <h3>Your Patients Invitation Link</h3>
+
+                    <p>{{route('patient.create.direct', ['id' => \Illuminate\Support\Facades\Auth::user()->id ])}}</p>
+                </div>
+
+            </div>
+        </div>
     </section>
 @endsection

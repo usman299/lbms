@@ -34,3 +34,7 @@ Route::get('/patient/status/{id}', 'Admin\PatientController@statusView')->name('
 Route::get('/patient/status/{id}/{status}', 'Admin\PatientController@status')->name('patient.status');
 Route::post('/patient/store', 'Admin\PatientController@store')->name('patient.store');
 
+
+
+Route::get('/patient/create/direct/{id}', 'Admin\PatientController@direct')->name('patient.create.direct');
+

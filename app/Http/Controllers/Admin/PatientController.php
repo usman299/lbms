@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 
 class PatientController extends Controller
 {
+    public function direct($id){
+        return view('direct', compact('id'));
+    }
     public function index(){
         if (Auth::user()->role == 0){
             $users = User::where('role', '2')->get();
@@ -34,7 +37,12 @@ class PatientController extends Controller
     public function store(Request $request){
         $user = new User();
         $user->role = 2;
-        $user->creator_id = Auth::user()->id;
+        if ($request->creator_id){
+            $user->creator_id = $request->creator_id;
+        }else{
+            $user->creator_id = Auth::user()->id;
+        }
+
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->email = $request->email;

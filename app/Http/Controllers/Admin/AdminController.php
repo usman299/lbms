@@ -28,7 +28,7 @@ class AdminController extends Controller
         $user->phone = $request->phone;
         $user->business_name = $request->business_name;
         $user->address1 = $request->address1;
-        $user->pc = $request->pc;
+        $user->postal = $request->pc;
         $user->role = $request->role;
         $user->password = Hash::make($request->password);
         $user->save();

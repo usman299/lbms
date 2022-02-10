@@ -27,3 +27,7 @@ Route::get('/admin/lab/index', 'Admin\AdminController@labIndex')->name('admin.la
 Route::get('/admin/lab/create', 'Admin\AdminController@labCreate')->name('admin.lab.create');
 Route::post('/admin/lab/store', 'Admin\AdminController@labStore')->name('admin.lab.store');
 
+Route::get('/patients', 'Admin\PatientController@index')->name('patients');
+Route::get('/patient/create', 'Admin\PatientController@create')->name('patient.create');
+Route::post('/patient/store', 'Admin\PatientController@store')->name('patient.store');
+

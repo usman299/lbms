@@ -25,20 +25,24 @@ class CreateUsersTable extends Migration
             $table->string('business_name')->nullable();
             $table->string('phone')->nullable();
             $table->string('address1')->nullable();
-            $table->string('pc')->nullable();
+            $table->string('postal')->nullable();
             $table->string('notes')->nullable();
             //Patient
-            $table->string('r_num')->nullable();
+            $table->integer('creator_id')->nullable();
             $table->string('u_r_num')->nullable();
+            $table->string('c_r_num')->nullable();
             $table->string('dob')->nullable();
+            $table->string('passport')->nullable();
             $table->string('gender')->nullable();
             $table->string('ethnicity')->nullable();
             $table->string('address2')->nullable();
             $table->string('town')->nullable();
-            $table->string('country_residence')->nullable();
+            $table->string('country')->nullable();
             $table->string('swab_date')->nullable();
             $table->string('swab_time')->nullable();
-            $table->string('scheme')->nullable();
+            $table->string('wish')->nullable();
+
+            $table->integer('status')->default(0);
 
             $table->string('password',128)->nullable();
             $table->timestamp('email_verified_at')->nullable();

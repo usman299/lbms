@@ -51,7 +51,7 @@
                                             <td>{{$row->email}}</td>
                                             <td>{{$row->phone}}</td>
                                             <td>{{$row->address1.' '.$row->address2 .', '.$row->postal}}</td>
-                                            <td>{{$row->pcr_rate}}£</td>
+                                            <td>£{{$row->pcr_rate}}</td>
                                             <td>
                                                 <a href="{{route('partner.edit', ['id' => $row->id])}}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="edit">
                                                     <i class="fa fa-pen"></i>
@@ -91,7 +91,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Name</b><span class="text-danger">*</span></label>
-                                <input type="text"  name="business_name" required placeholder="Business Name" class="form-control">
+                                <input type="text"  name="business_name" required " class="form-control">
                             </div>
                         </div>
 
@@ -110,56 +110,56 @@
 
                           <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>Business Phone#</b><span class="text-danger">*</span></label>
-                                <input type="text"  name="phone" required placeholder="Phone#" class="form-control">
+                                <label for="title"><b>Business Phone</b><span class="text-danger">*</span></label>
+                                <input type="text"  name="phone" required  class="form-control">
                             </div>
                         </div>
 
                          <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Address Line 1</b><span class="text-danger">*</span></label>
-                                <input type="text"  name="address1" required placeholder="Address" class="form-control">
+                                <input type="text"  name="address1" required  class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Address Line 2</b></span></label>
-                                <input type="text"  name="address2"  placeholder="Address" class="form-control">
+                                <input type="text"  name="address2"   class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>Business Postcode #</b><span class="text-danger">*</span></label>
-                                <input type="text"  name="pc" required placeholder="Phone#" class="form-control">
+                                <label for="title"><b>Business Postcode</b><span class="text-danger">*</span></label>
+                                <input type="text"  name="pc" required  class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Charge Rate For PCR</b><span class="text-danger">*</span></label>
-                                <input type="text"  name="pcr_rate" required placeholder="e.g £30" class="form-control">
+                                <input type="text"  name="pcr_rate" required  class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Password</b><span class="text-danger">*</span></label>
-                                <input type="password"  name="password" required placeholder="Password" class="form-control">
+                                <input type="password"  name="password" required class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>First Name</b><span class="text-danger">*</span></label>
-                                <input type="text"  name="fname" required placeholder="First Name" class="form-control">
+                                <input type="text"  name="fname" required  class="form-control">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>Sur Name</b><span class="text-danger">*</span></label>
-                                <input type="text"  name="lname" required placeholder="Last Name" class="form-control">
+                                <label for="title"><b>Surname</b><span class="text-danger">*</span></label>
+                                <input type="text"  name="lname" required  class="form-control">
                             </div>
                         </div>
 

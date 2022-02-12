@@ -34,7 +34,7 @@
                                 <thead>
                                 <tr>
                                     <th>Registration</th>
-                                    <th>Barcode URN</th>
+                                    <th>Barcode</th>
                                     @if(Auth::user()->role == 0)
                                     <th>Partner</th>
                                     @endif

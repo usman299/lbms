@@ -44,14 +44,18 @@
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Phone : </b>{{$user->phone}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Gender : </b>{{$user->gender}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Date of Birth : </b>{{$user->dob}}</font></font></p>
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Passport: </b>{{$user->passport}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>House No / Name: </b>{{$user->address1}}</font></font></p>
                                                     <!-- <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Address Line 2 : </b>{{$user->address2}}</font></font></p> -->
-                                                    
-                                                    
-                                                    
+
+
+
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Street : </b>{{$user->town}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Postal Code : </b>{{$user->postal}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Country : </b>{{$user->country}}</font></font></p>
+
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Swab Date : </b>{{$user->swab_date}}</font></font></p>
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Swab Time : </b>{{$user->swab_time}}</font></font></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,5 +117,5 @@
     <!-- /.content -->
     </div>
 
-  
+
 @endsection

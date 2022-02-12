@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function login()
     {
         return view('admin.auth.login');
@@ -21,6 +27,12 @@ class AdminController extends Controller
     public function labStore(Request $request)
     {
 
+        $validator=$request->validate([
+
+            'email' => 'required|string|email|max:255|unique:users',
+
+        ]);
+
         $user = new User();
         $user->fname = $request->fname;
         $user->lname = $request->lname;
@@ -28,7 +40,9 @@ class AdminController extends Controller
         $user->phone = $request->phone;
         $user->business_name = $request->business_name;
         $user->address1 = $request->address1;
+        $user->address2 = $request->address2;
         $user->postal = $request->pc;
+        $user->pcr_rate = $request->pcr_rate;
         $user->role = $request->role;
         $user->password = Hash::make($request->password);
         $user->save();

@@ -33,7 +33,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>Order No</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>URN Number</th>
@@ -50,27 +50,32 @@
                                         <td>{{$row->id}}</td>
                                         <td>{{$row->fname.' '.$row->lname}}</td>
                                         <td>{{$row->email}}</td>
-                                        <td>{{$row->phone}}</td>
                                         <td>{{$row->u_r_num}}</td>
+                                        <td>{{$row->phone}}</td>
+                                        
 
                                         <td>{{$row->country}}</td>
-                                        <td>{{$row->created_at}}</td>
+                                        <td>{{$row->created_at->format('d-m-Y H:i')}}</td>
                                         <td>
                                             @if($row->status == 0)
-                                                <small class="badge badge-success"><i class="far fa-clock"></i> Awaiting Result
+                                                <small class="badge badge-primary"><i class="far fa-clock"></i> Awaiting Result
                                                 </small>
                                             @elseif($row->status ==1)
-                                                <small class="badge badge-warning">Positive</small>
+                                                <small class="badge badge-danger">Positive</small>
                                             @elseif($row->status ==2)
-                                                <small class="badge badge-danger">Negative</small>
+                                                <small class="badge badge-success">Negative</small>
                                              @elseif($row->status ==3)
-                                                <small class="badge badge-primary">Inconclusive</small>
+                                                <small class="badge badge-warning">Inconclusive</small>
                                             @endif
                                            </td>
 
                                         <td>
                                             <a href="{{route('patient.show', ['id' => $row->id])}}" class="btn btn-sm btn-success" data-toggle="tooltip" title="View">
                                                 <i class="fa fa-eye"></i>
+                                            </a>
+
+                                            <a href="{{route('patient.edit', ['id' => $row->id])}}" class="btn btn-sm btn-dark" data-toggle="tooltip" title="Edit">
+                                                <i class="fa fa-pen"></i>
                                             </a>
                                         </td>
                                     </tr>

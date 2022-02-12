@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Add new Patient</li>
+                        <li class="breadcrumb-item active">Edit Patient</li>
                     </ol>
                 </div>
             </div>
@@ -23,25 +23,26 @@
             <!-- SELECT2 EXAMPLE -->
             <div class="card card-default col-md-8 offset-2">
                 <div class="card-header">
-                    <h2 class="card-title"><b><u>Add new Patient</u></b></h2>
+                    <h2 class="card-title"><b><u>Edit Patient</u></b></h2>
 
                     
                 </div>
-                <form action="{{route('patient.store')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+                <form action="{{route('patient.update')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id" value="{{$user->id}}">
                 <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Unique Reference Number</label>
-                                    <input type="text" name="u_r_num" required class="form-control">
+                                    <input type="text" name="u_r_num"  class="form-control" value="{{$user->u_r_num}}" readonly="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Confirm Unique Reference Number</label>
-                                    <input type="text" name="c_r_num" required class="form-control">
+                                    <input type="text" name="c_r_num"  class="form-control" value="{{$user->u_r_num}}" readonly="">
                                 </div>
                             </div>
                         </div>
@@ -49,25 +50,26 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">First Name</label>
-                                    <input type="text" name="fname" required class="form-control">
+                                    <input type="text" name="fname" required class="form-control" value="{{$user->fname}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Last Name</label>
-                                    <input type="text" name="lname" required class="form-control">
+                                    <input type="text" name="lname" required class="form-control" value="{{$user->lname}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Date of Birth (dd/mm/yyyy)</label>
-                                    <input type="date" name="dob" required class="form-control">
+                                    <input type="date" name="dob" required class="form-control" value="{{$user->dob}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Gender</label>
                                     <select name="gender" class="form-control" id="">
+                                        <option selected="" value="{{$user->gender}}">{{$user->gender}}</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -76,7 +78,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Telephone</label>
-                                    <input type="text" name="phone" required class="form-control">
+                                    <input type="text" name="phone" required class="form-control" value="{{$user->phone}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -85,6 +87,7 @@
                                     <select id="ethnicity" name="ethnicity"
                                             required="" class="form-control"
                                           >
+                                          <option selected="" value="{{$user->ethnicity}}">{{$user->ethnicity}}</option>
                                         <option value="Asian / Asian British"
                                                >Asian / Asian British
                                         </option>
@@ -122,7 +125,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"  required autocomplete="email" value="{{$user->email}}">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -141,19 +144,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Confirm Email</label>
-                                    <input type="email" name="title" required class="form-control">
+                                    <input type="email" name="title" required class="form-control" value="{{$user->email}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Passport Number (If required for travel)</label>
-                                    <input type="text" name="passport" required class="form-control">
+                                    <input type="text" name="passport" required class="form-control" value="{{$user->passport}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Country of Residence</label>
-                                    <select class="form-control" id="country" name="country">
+                                    <select class="form-control" id="country" name="country" >
+                                        <option selected="" value="{{$user->country}}">{{$user->country}}</option>
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
                                         <option value="Algeria">Algeria</option>
@@ -382,7 +386,7 @@
                                         <option value="Turks & Caicos Is">Turks & Caicos Is</option>
                                         <option value="Tuvalu">Tuvalu</option>
                                         <option value="Uganda">Uganda</option>
-                                        <option selected value="United Kingdom">United Kingdom</option>
+                                        <option value="United Kingdom">United Kingdom</option>
                                         <option value="Ukraine">Ukraine</option>
                                         <option value="United Arab Erimates">United Arab Emirates</option>
                                         <option value="United States of America">United States of America</option>
@@ -406,7 +410,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">House No / Name</label>
-                                    <input type="text" name="address1" required class="form-control">
+                                    <input type="text" name="address1" required class="form-control" value="{{$user->address1}}">
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">
@@ -418,26 +422,26 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Street</label>
-                                    <input type="text" name="town" required class="form-control">
+                                    <input type="text" name="town" required class="form-control" value="{{$user->town}}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Postcode</label>
-                                    <input type="text" name="postal" required class="form-control">
+                                    <input type="text" name="postal" required class="form-control" value="{{$user->postal}}">
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Swab Date (dd/mm/yyyy)</label>
-                                    <input id="date-input" type="date" name="swab_date" required class="form-control">
+                                    <input  type="date" name="swab_date" required class="form-control" value="{{$user->swab_date}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Swab Time (hh:mm)</label>
-                                    <input type="time" name="swab_time" required class="form-control">
+                                    <input type="time" name="swab_time" required class="form-control" value="{{$user->swab_time}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -445,13 +449,14 @@
                                     <label for="">I wish to participate in the Test to Release or Day 2 / Day 8
                                         scheme</label>
                                     <select name="wish" class="form-control" id="">
+                                        <option selected="" value="{{$user->wish}}">{{$user->wish}}</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Patient</button>
+                        <button type="submit" class="btn btn-primary">Update Patient</button>
                     </div>
                 </form>
             </div>
@@ -459,8 +464,5 @@
                  </div>
                 <!-- /.container-fluid -->
     </section>
-    <script type="text/javascript">
-        const element = document.getElementById('date-input');
-element.valueAsNumber = Date.now()-(new Date()).getTimezoneOffset()*60000;
-    </script>
+   
 @endsection

@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.auth.login');
-});
+// Route::get('/', function () {
+//     return view('admin.auth.login');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/admin/login', 'Admin\AdminController@login')->name('admin.login');
 
 // Lab attendent
@@ -30,6 +30,8 @@ Route::post('/admin/lab/store', 'Admin\AdminController@labStore')->name('admin.l
 Route::get('/patients', 'Admin\PatientController@index')->name('patients');
 Route::get('/patient/create', 'Admin\PatientController@create')->name('patient.create');
 Route::get('/patient/show/{id}', 'Admin\PatientController@show')->name('patient.show');
+Route::get('/patient/edit/{id}', 'Admin\PatientController@edit')->name('patient.edit');
+Route::post('/patient/update', 'Admin\PatientController@update')->name('patient.update');
 Route::get('/patient/status/{id}', 'Admin\PatientController@statusView')->name('patients.status');
 Route::get('/patient/status/{id}/{status}', 'Admin\PatientController@status')->name('patient.status');
 Route::post('/patient/store', 'Admin\PatientController@store')->name('patient.store');

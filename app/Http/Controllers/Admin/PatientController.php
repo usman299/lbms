@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Hash;
 
 class PatientController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function direct($id){
         return view('direct', compact('id'));
     }
@@ -35,6 +41,13 @@ class PatientController extends Controller
         return view('admin.patient.create');
     }
     public function store(Request $request){
+
+        $validator=$request->validate([
+
+            'email' => 'required|string|email|max:255|unique:users',
+
+        ]);
+
         $user = new User();
         $user->role = 2;
         if ($request->creator_id){
@@ -67,7 +80,7 @@ class PatientController extends Controller
         $user->password = Hash::make(12345678);
         $user->save();
         $notification=array(
-            'messege'=>'User Added',
+            'messege'=>'Patient Added Successsfully!',
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);
@@ -82,6 +95,52 @@ class PatientController extends Controller
         $user->update();
         $notification=array(
             'messege'=>'Status Update Successsfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+
+     public function edit($id){
+        $user = User::find($id);
+        return view('admin.patient.edit', compact('user'));
+    }
+
+    public function update(Request $request){
+
+        $validator=$request->validate([
+
+            'email' => 'required|string|email|max:255|unique:users',
+
+        ]);
+
+        $user = User::find($request->id);
+        
+
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address1 = $request->address1;
+        $user->address2 = $request->address2;
+        $user->postal = $request->postal;
+
+        $user->u_r_num = $request->u_r_num;
+        $user->c_r_num = $request->c_r_num;
+        $user->dob = $request->dob;
+        $user->gender = $request->gender;
+        $user->ethnicity = $request->ethnicity;
+        $user->passport = $request->passport;
+        $user->town = $request->town;
+        $user->swab_date = $request->swab_date;
+        $user->swab_time = $request->swab_time;
+        $user->wish = $request->wish;
+        $user->country = $request->country;
+
+
+        
+        $user->save();
+        $notification=array(
+            'messege'=>'Patient Details Updated Successsfully!',
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);

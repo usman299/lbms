@@ -25,7 +25,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Patient Details {{$user->u_r_num}}</h3>
+                            <h3 class="card-title">Patient Details # <b>{{$user->u_r_num}}</b></h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -42,12 +42,15 @@
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Name : </b>{{$user->fname}} {{$user->lname}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Email : </b>{{$user->email}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Phone : </b>{{$user->phone}}</font></font></p>
-                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Address Line 1: </b>{{$user->address1}}</font></font></p>
-                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Address Line 2 : </b>{{$user->address2}}</font></font></p>
-                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Postal Code : </b>{{$user->postal}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Gender : </b>{{$user->gender}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Date of Birth : </b>{{$user->dob}}</font></font></p>
-                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Town : </b>{{$user->town}}</font></font></p>
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>House No / Name: </b>{{$user->address1}}</font></font></p>
+                                                    <!-- <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Address Line 2 : </b>{{$user->address2}}</font></font></p> -->
+                                                    
+                                                    
+                                                    
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Street : </b>{{$user->town}}</font></font></p>
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Postal Code : </b>{{$user->postal}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Country : </b>{{$user->country}}</font></font></p>
                                                 </div>
                                             </div>
@@ -68,15 +71,16 @@
                                                                         <small class="badge badge-success"><i class="far fa-clock"></i> Awaiting Result
                                                                         </small>
                                                                     @elseif($user->status ==1)
-                                                                        <small class="badge badge-warning">Positive</small>
+                                                                        <small class="badge badge-danger">Positive</small>
                                                                     @elseif($user->status ==2)
-                                                                        <small class="badge badge-danger">Negative</small>
+                                                                        <small class="badge badge-success">Negative</small>
                                                                     @elseif($user->status ==3)
-                                                                        <small class="badge badge-primary">Inconclusive</small>
+                                                                        <small class="badge badge-warning">Inconclusive</small>
                                                                     @endif
                                                                 </font></font></strong></p>
                                                     <br>
                                                     <br>
+                                                    @if(Auth::user()->role == '0')
                                                     <h6 class="mb-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Change Status</b></font></font></h6>
                                                         <div class="row">
                                                         <div class="col-12">
@@ -88,7 +92,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -108,4 +112,6 @@
     </section>
     <!-- /.content -->
     </div>
+
+  
 @endsection

@@ -41,6 +41,7 @@ class CreateUsersTable extends Migration
             $table->string('swab_date')->nullable();
             $table->string('swab_time')->nullable();
             $table->string('wish')->nullable();
+            $table->string('pcr_rate')->nullable();
 
             $table->integer('status')->default(0);
 

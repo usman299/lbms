@@ -39,7 +39,7 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Address</th>
-                                        <th>PCR RatePCR Rate</th>
+                                        <th>PCR Rate</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>

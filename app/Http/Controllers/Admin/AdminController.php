@@ -53,4 +53,30 @@ class AdminController extends Controller
         return Redirect()->back()->with($notification);
 
     }
+    public function partnerEdit($id){
+        $user = User::find($id);
+        return view('admin.lab.user.edit', compact('user'));
+    }
+    public function partnerUpdate(Request $request, $id){
+        $user = User::find($id);
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->business_name = $request->business_name;
+        $user->address1 = $request->address1;
+        $user->address2 = $request->address2;
+        $user->postal = $request->pc;
+        $user->pcr_rate = $request->pcr_rate;
+        $user->role = $request->role;
+        if ($request->password){
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        $notification=array(
+            'messege'=>'User Added',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
 }

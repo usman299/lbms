@@ -37,4 +37,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id');
+    }
 }

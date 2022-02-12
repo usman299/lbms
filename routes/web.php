@@ -25,6 +25,8 @@ Route::get('/admin/login', 'Admin\AdminController@login')->name('admin.login');
 // Lab attendent
 Route::get('/admin/lab/index', 'Admin\AdminController@labIndex')->name('admin.lab.index');
 Route::get('/admin/lab/create', 'Admin\AdminController@labCreate')->name('admin.lab.create');
+Route::get('/partner/edit/{id}', 'Admin\AdminController@partnerEdit')->name('partner.edit');
+Route::post('/partner/update/{id}', 'Admin\AdminController@partnerUpdate')->name('partner.update');
 Route::post('/admin/lab/store', 'Admin\AdminController@labStore')->name('admin.lab.store');
 
 Route::get('/patients', 'Admin\PatientController@index')->name('patients');

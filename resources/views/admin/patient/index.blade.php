@@ -33,13 +33,12 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Order No</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>URN Number</th>
-                                    <th>Phone#</th>
-                                    <th>Country</th>
-                                    <th>Registration date</th>
+                                    <th>Registration</th>
+                                    <th>Barcode URN</th>
+                                    @if(Auth::user()->role == 0)
+                                    <th>Partner</th>
+                                    @endif
+                                    <th>Customer Name</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -47,15 +46,12 @@
                                 <tbody>
                                 @foreach($users as $row)
                                     <tr>
-                                        <td>{{$row->id}}</td>
-                                        <td>{{$row->fname.' '.$row->lname}}</td>
-                                        <td>{{$row->email}}</td>
-                                        <td>{{$row->u_r_num}}</td>
-                                        <td>{{$row->phone}}</td>
-                                        
-
-                                        <td>{{$row->country}}</td>
                                         <td>{{$row->created_at->format('d-m-Y H:i')}}</td>
+                                        <td>{{$row->u_r_num}}</td>
+                                        @if(Auth::user()->role == 0)
+                                        <td>{{$row->creator->business_name??''}}</td>
+                                        @endif
+                                        <td>{{$row->fname.' '.$row->lname}}</td>
                                         <td>
                                             @if($row->status == 0)
                                                 <small class="badge badge-primary"><i class="far fa-clock"></i> Awaiting Result

@@ -34,41 +34,29 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Order No</th>
-                                        <th>Business Name</th>
+                                        <th>Business</th>
+                                        <th>Contact Person</th>
                                         <th>Email</th>
-                                        <th>Phone#</th>
-                                        <th>Address Line 1</th>
-                                        <th>Address Line 2</th>
-                                        <th>Postcode</th>
-                                        <th>Charge Rate For PCR</th>
-                                        <th>Full Name</th>
-                                        
-
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>PCR RatePCR Rate</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($labUser as $row)
                                         <tr>
-                                            <td>{{$row->id}}</td>
                                             <td>{{$row->business_name}}</td>
+                                            <td>{{$row->fname.' '.$row->lname}}</td>
                                             <td>{{$row->email}}</td>
                                             <td>{{$row->phone}}</td>
-                                            <td>{{$row->address1}}</td>
-                                            <td>{{$row->address2}}</td>
-                                            <td>{{$row->postal}}</td>
-                                            <td>{{$row->pcr_rate}}</td>
-                                            <td>{{$row->fname.' '.$row->lname}}</td>
-                                            
-                                            
-                                            
-                                            
-
-{{--                                            <td>--}}
-{{--                                                <a href="#" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" title="edit">--}}
-{{--                                                    <i class="fa fa-times"></i>--}}
-{{--                                                </a>--}}
-{{--                                            </td>--}}
+                                            <td>{{$row->address1.' '.$row->address2 .', '.$row->postal}}</td>
+                                            <td>{{$row->pcr_rate}}£</td>
+                                            <td>
+                                                <a href="{{route('partner.edit', ['id' => $row->id])}}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="edit">
+                                                    <i class="fa fa-pen"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -174,12 +162,12 @@
                                 <input type="text"  name="lname" required placeholder="Last Name" class="form-control">
                             </div>
                         </div>
-                       
-                        
-                        
-                      
-                        
-                       
+
+
+
+
+
+
                         <input type="hidden" name="role" value="1">
 
 

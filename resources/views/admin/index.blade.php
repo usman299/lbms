@@ -6,12 +6,6 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -42,7 +36,7 @@
                             </div>
                         </div>
                  </form>
-                    
+
                 </div>
             <div class="row">
                 @if(Auth::user()->role == 0)
@@ -58,7 +52,7 @@
                         <div class="icon">
                             <i class="fas fa-handshake"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+{{--                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
                 @endif
@@ -74,7 +68,7 @@
                         <div class="icon">
                             <i class="fas fa-ambulance"></i>
                         </div>
-                        <a href="{{route('patients')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+{{--                        <a href="{{route('patients')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
                 <!-- ./col -->
@@ -89,7 +83,7 @@
                         <div class="icon">
                             <i class="fas fa-spinner"></i>
                         </div>
-                        <a href="{{route('patients.status', ['id' => 0])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+{{--                        <a href="{{route('patients.status', ['id' => 0])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
                 <!-- ./col -->
@@ -104,7 +98,7 @@
                         <div class="icon">
                             <i class="fas fa-plus"></i>
                         </div>
-                        <a href="{{route('patients.status', ['id' => 1])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+{{--                        <a href="{{route('patients.status', ['id' => 1])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
                 <!-- ./col -->
@@ -119,7 +113,7 @@
                         <div class="icon">
                             <i class="fas fa-minus"></i>
                         </div>
-                        <a href="{{route('patients.status', ['id' => 2])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+{{--                        <a href="{{route('patients.status', ['id' => 2])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
@@ -133,7 +127,7 @@
                         <div class="icon">
                             <i class="fas fa-question"></i>
                         </div>
-                        <a href="{{route('patients.status', ['id' => 3])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+{{--                        <a href="{{route('patients.status', ['id' => 3])}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
                 <!-- ./col -->
@@ -143,15 +137,15 @@
 
             <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card p-4">
-                    <h3>Your Patients Invitation Link</h3>
+{{--        <div class="row">--}}
+{{--            <div class="col-md-12">--}}
+{{--                <div class="card p-4">--}}
+{{--                    <h3>Your Patients Invitation Link</h3>--}}
 
-                    <p>{{route('patient.create.direct', ['id' => \Illuminate\Support\Facades\Auth::user()->id ])}}</p>
-                </div>
+{{--                    <p>{{route('patient.create.direct', ['id' => \Illuminate\Support\Facades\Auth::user()->id ])}}</p>--}}
+{{--                </div>--}}
 
-            </div>
-        </div>
+{{--            </div>--}}
+{{--        </div>--}}
     </section>
 @endsection

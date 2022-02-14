@@ -26,6 +26,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Patient Details # <b>{{$user->u_r_num}}</b></h3>
+                            @if(Auth::user()->role == 0)
+                            <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-sm float-right">Add Batch No</button>
+                             @endif
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -110,12 +113,110 @@
                 </div>
                 <!-- /.col -->
             </div>
+            @if(Auth::user()->role == 0)
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Batch</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Batch No</th>
+                                    <th>Sample</th>
+                                    <th>Test Date</th>
+                                    <th>Test Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($user->batches as $row)
+                                    <tr>
+                                        <td>{{$row->batch_no}}</td>
+                                        <td>{{$row->sample}}</td>
+                                        <td>{{$row->test_date}}</td>
+                                        <td>{{$row->test_time}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div>
+        @endif
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Batch No</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="{{route('batch.store', ['id' => $user->id])}}" method="post" enctype="multipart/form-data" data-parsley-validate>
+                        @csrf
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Batch No</b><span class="text-danger">*</span></label>
+                                <input type="text"  name="batch_no" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Sample</b><span class="text-danger">*</span></label>
+                                <input type="text"  name="sample" required  class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Test Date
+                                    </b><span class="text-danger">*</span></label>
+                                <input type="date" id="date-input"  name="test_date" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Test Time   </b><span class="text-danger">*</span></label>
+                                <input type="time"  name="test_time" required  class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Status </b><span class="text-danger">*</span></label>
+                                <select name="status" class="form-control" id="">
+                                    <option value="1">Complete</option>
+                                    <option value="2">Reject</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 pull-right">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div></div>
 
 
 @endsection

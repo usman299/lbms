@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\CertificateMail;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class PatientController extends Controller
 {
@@ -21,9 +24,9 @@ class PatientController extends Controller
     }
     public function index(){
         if (Auth::user()->role == 0){
-            $users = User::where('role', '2')->get();
+            $users = User::latest()->where('role', '2')->get();
         }else{
-            $users = User::where('role', '2')->where('creator_id', Auth::user()->id)->get();
+            $users = User::latest()->where('role', '2')->where('creator_id', Auth::user()->id)->get();
         }
 
         return view('admin.patient.index', compact('users'));
@@ -92,7 +95,9 @@ class PatientController extends Controller
     public function status($id, $status){
         $user = User::find($id);
         $user->status = $status;
+        $user->result_date = Carbon::now();
         $user->update();
+        Mail::to($user->email)->send(new CertificateMail($user));
         $notification=array(
             'messege'=>'Status Update Successsfully',
             'alert-type'=>'success'
@@ -106,16 +111,10 @@ class PatientController extends Controller
     }
 
     public function update(Request $request){
-
         $validator=$request->validate([
-
             'email' => 'required|string|email|max:255|unique:users',
-
         ]);
-
         $user = User::find($request->id);
-        
-
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->email = $request->email;
@@ -136,8 +135,6 @@ class PatientController extends Controller
         $user->wish = $request->wish;
         $user->country = $request->country;
 
-
-        
         $user->save();
         $notification=array(
             'messege'=>'Patient Details Updated Successsfully!',

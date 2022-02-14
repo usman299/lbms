@@ -96,7 +96,7 @@
                          with font-awesome or any other icon font library -->
 
                     <li class="nav-item menu-open">
-                        <a href="{{route('home')}}" class="nav-link active">
+                        <a href="{{route('home')}}" class="nav-link {{  request()->is('/') ? 'active':'' }}">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
                                 Dashboard
@@ -107,7 +107,7 @@
                     </li>
                     @if(Auth::user()->role==0)
                     <li class="nav-item menu-open">
-                        <a href="{{route('admin.lab.index')}}" class="nav-link ">
+                        <a href="{{route('admin.lab.index')}}" class="nav-link {{  request()->is('admin/lab/index') ? 'active':'' }}">
                             <i class="nav-icon fa fa-handshake"></i>
                             <p>
                                 Partners
@@ -117,7 +117,7 @@
                     </li>
                     @endif
                     <li class="nav-item menu-open">
-                        <a href="{{route('patients')}}" class="nav-link ">
+                        <a href="{{route('patients')}}" class="nav-link {{  request()->is('patients') ? 'active':'' }}">
                             <i class="nav-icon fas fa-medkit"></i>
                             <p>
                                Patients
@@ -126,7 +126,7 @@
 
                     </li>
                     <li class="nav-item menu-open">
-                        <a href="{{route('patient.create')}}" class="nav-link ">
+                        <a href="{{route('patient.create')}}" class="nav-link {{  request()->is('patient/create') ? 'active':'' }}">
                             <i class="nav-icon fas  fa-plus"></i>
                             <p>
                                Add Patient
@@ -337,6 +337,10 @@
 
     })
 
+</script>
+<script type="text/javascript">
+    const element = document.getElementById('date-input');
+    element.valueAsNumber = Date.now()-(new Date()).getTimezoneOffset()*60000;
 </script>
 @yield('script')
 </body>

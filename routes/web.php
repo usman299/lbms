@@ -42,3 +42,9 @@ Route::post('/patient/store', 'Admin\PatientController@store')->name('patient.st
 
 Route::get('/patient/create/direct/{id}', 'Admin\PatientController@direct')->name('patient.create.direct');
 
+Route::post('/batch/store/{id}', 'Admin\BatchController@store')->name('batch.store');
+
+Route::get('/email', function (){
+    $user = \App\User::find(4);
+    return view('admin.email.certificate', compact('user'));
+});

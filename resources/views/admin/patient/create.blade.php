@@ -25,7 +25,7 @@
                 <div class="card-header">
                     <h2 class="card-title"><b><u>Add new Patient</u></b></h2>
 
-                    
+
                 </div>
                 <form action="{{route('patient.store')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
                 @csrf
@@ -35,13 +35,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Unique Reference Number</label>
-                                    <input type="text" name="u_r_num" required class="form-control">
+                                    <input type="text" name="u_r_num" required class="form-control ref1">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Confirm Unique Reference Number</label>
-                                    <input type="text" name="c_r_num" required class="form-control">
+                                    <input type="text" name="c_r_num" oninput="checkref(this)" required class="form-control ref2">
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email" class="form-control email1 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -141,7 +141,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Confirm Email</label>
-                                    <input type="email" name="title" required class="form-control">
+                                    <input type="email" oninput="checkemail(this)" name="title" required class="form-control email2">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -427,7 +427,7 @@
                                     <input type="text" name="postal" required class="form-control">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Swab Date (dd/mm/yyyy)</label>
@@ -459,8 +459,31 @@
                  </div>
                 <!-- /.container-fluid -->
     </section>
-    <script type="text/javascript">
-        const element = document.getElementById('date-input');
-element.valueAsNumber = Date.now()-(new Date()).getTimezoneOffset()*60000;
+
+@endsection
+@section('script')
+    <script>
+        function checkref(elem){
+            var ref2 = elem.value;
+            var ref1 = $(".ref1").val();
+            if(ref2 == ref1){
+                $(".ref1").removeClass("is-invalid");
+                $(".ref2").removeClass("is-invalid");
+            }else {
+                $(".ref1").addClass("is-invalid");
+                $(".ref2").addClass("is-invalid");
+            }
+        }
+        function checkemail(elem){
+            var email2 = elem.value;
+            var email1 = $(".email1").val();
+            if(email2 == email1){
+                $(".email1").removeClass("is-invalid");
+                $(".email2").removeClass("is-invalid");
+            }else {
+                $(".email1").addClass("is-invalid");
+                $(".email2").addClass("is-invalid");
+            }
+        }
     </script>
 @endsection

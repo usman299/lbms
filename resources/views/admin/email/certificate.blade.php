@@ -95,9 +95,15 @@
         <td>Result Interpretation</td>
     </tr>
     <tr>
-        <td>Not detected: No evidence of SARS-CoV-2 RNA in this sample. This indicates that, at the time ofsampling, the
-            patient is unlikely to have an active SARS-CoV2 infection
-        </td>
+        @if($user->status ==1)
+            <td></td>
+        @elseif($user->status ==2)
+            <td>Not detected: No evidence of SARS-CoV-2 RNA in this sample. This indicates that, at the time ofsampling, the
+                patient is unlikely to have an active SARS-CoV2 infection
+            </td>
+        @elseif($user->status ==3)
+            <td></td>
+        @endif
     </tr>
 </table>
 
@@ -107,9 +113,6 @@
         <td>Analysis Notes</td>
     </tr>
     <tr>
-        @if($user->status ==1)
-            <td></td>
-        @elseif($user->status ==2)
             <td>It should be noted that all results provide a momentary view and that an individual’s health statusmay have
                 changed since the sample specimen was taken. Screening is provided on a bestendeavours policy based on the
                 sample specimen supplied and does not provide a guarantee tothe health status of individuals.If your health
@@ -118,9 +121,6 @@
                 out via CE-IVDcertified testing kits using validated methods by Roshni Clinic Labs in-line with ISO15189,
                 MedicalLaboratories – Requirements for quality and competence.
             </td>
-        @elseif($user->status ==3)
-            <td></td>
-        @endif
     </tr>
 </table>
 

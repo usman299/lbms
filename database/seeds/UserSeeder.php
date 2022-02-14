@@ -19,21 +19,5 @@ class UserSeeder extends Seeder
             'password' => bcrypt('password'),
 
         ]);
-        User::create([
-            'fname' => "Lab",
-            'lname' => "attendent",
-            'email' => "lab@gmail.com",
-            'role' => '1',
-            'password' => bcrypt('password'),
-
-        ]);
-        User::create([
-            'fname' => "Patient",
-            'lname' => "",
-            'email' => "user@gmail.com",
-            'role' => '2',
-            'password' => bcrypt('password'),
-
-        ]);
     }
 }

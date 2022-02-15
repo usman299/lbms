@@ -341,6 +341,9 @@
 <script type="text/javascript">
     const element = document.getElementById('date-input');
     element.valueAsNumber = Date.now()-(new Date()).getTimezoneOffset()*60000;
+
+    const element1 = document.getElementById('date-input1');
+    element1.valueAsNumber = Date.now()-(new Date()).getTimezoneOffset()*60000;
 </script>
 @yield('script')
 </body>

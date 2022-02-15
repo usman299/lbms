@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/filter/stats', 'HomeController@filter')->name('filter.stats');
+
 Route::get('/admin/login', 'Admin\AdminController@login')->name('admin.login');
 
 // Lab attendent

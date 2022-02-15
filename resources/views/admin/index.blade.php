@@ -14,7 +14,8 @@
             <!-- Small boxes (Stat box) -->
 
             <div class="card-header">
-                <form>
+                <form method="POST" action="{{route('filter.stats')}}">
+                    @csrf
                      <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
@@ -25,7 +26,7 @@
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="">End Date</label>
-                                    <input type="date" name="e_date" required class="form-control">
+                                    <input type="date" name="e_date" placeholder="dd-mm-yyyy"   required class="form-control">
                                 </div>
                             </div>
 

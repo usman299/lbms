@@ -27,7 +27,8 @@
                         <div class="card-header">
                             <h3 class="card-title">Patient Details # <b>{{$user->u_r_num}}</b></h3>
                             @if(Auth::user()->role == 0)
-                            <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-sm float-right">Add Batch No</button>
+                                <a target="_blank" href="{{route('certificate.view', ['id' => $user->id])}}"><button class="btn btn-warning btn-sm float-right">VIEW CERTIFICATE</button></a>
+                                <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-sm float-right mr-2">ADD TO LAB</button>
                              @endif
                         </div>
                         <!-- /.card-header -->
@@ -46,7 +47,7 @@
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Email : </b>{{$user->email}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Phone : </b>{{$user->phone}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Gender : </b>{{$user->gender}}</font></font></p>
-                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Date of Birth : </b>{{$user->dob}}</font></font></p>
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Date of Birth : </b>{{$user->dob->format('d-m-Y')}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Passport: </b>{{$user->passport}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>House No / Name: </b>{{$user->address1}}</font></font></p>
                                                     <!-- <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Address Line 2 : </b>{{$user->address2}}</font></font></p> -->
@@ -57,7 +58,7 @@
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Postal Code : </b>{{$user->postal}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Country : </b>{{$user->country}}</font></font></p>
 
-                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Swab Date : </b>{{$user->swab_date}}</font></font></p>
+                                                    <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Swab Date : </b>{{$user->swab_date->format('d-m-Y')}}</font></font></p>
                                                     <p class="mb-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>Swab Time : </b>{{$user->swab_time}}</font></font></p>
                                                 </div>
                                             </div>
@@ -113,20 +114,18 @@
                 </div>
                 <!-- /.col -->
             </div>
-            @if(Auth::user()->role == 0)
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Batch</h3>
-                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    @if(Auth::user()->role == 0)
                                     <th>Batch No</th>
                                     <th>Sample</th>
+                                    @endif
                                     <th>Test Date</th>
                                     <th>Test Time</th>
                                 </tr>
@@ -134,9 +133,11 @@
                                 <tbody>
                                 @foreach($user->batches as $row)
                                     <tr>
+                                        @if(Auth::user()->role == 0)
                                         <td>{{$row->batch_no}}</td>
                                         <td>{{$row->sample}}</td>
-                                        <td>{{$row->test_date}}</td>
+                                        @endif
+                                        <td>{{$row->test_date->format('d-m-Y')}}</td>
                                         <td>{{$row->test_time}}</td>
                                     </tr>
                                 @endforeach
@@ -148,7 +149,6 @@
                 </div>
 
             </div>
-        @endif
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->

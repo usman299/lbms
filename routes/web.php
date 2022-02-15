@@ -33,6 +33,7 @@ Route::get('/patients', 'Admin\PatientController@index')->name('patients');
 Route::get('/patient/create', 'Admin\PatientController@create')->name('patient.create');
 Route::get('/patient/show/{id}', 'Admin\PatientController@show')->name('patient.show');
 Route::get('/patient/edit/{id}', 'Admin\PatientController@edit')->name('patient.edit');
+Route::get('/patient/delete/{id}', 'Admin\PatientController@delete')->name('patient.delete');
 Route::post('/patient/update', 'Admin\PatientController@update')->name('patient.update');
 Route::get('/patient/status/{id}', 'Admin\PatientController@statusView')->name('patients.status');
 Route::get('/patient/status/{id}/{status}', 'Admin\PatientController@status')->name('patient.status');
@@ -44,7 +45,7 @@ Route::get('/patient/create/direct/{id}', 'Admin\PatientController@direct')->nam
 
 Route::post('/batch/store/{id}', 'Admin\BatchController@store')->name('batch.store');
 
-Route::get('/email', function (){
-    $user = \App\User::find(4);
+Route::get('/certificate/{id}', function ($id){
+    $user = \App\User::find($id);
     return view('admin.email.certificate', compact('user'));
-});
+})->name('certificate.view');

@@ -59,6 +59,11 @@ class AdminController extends Controller
     }
     public function partnerUpdate(Request $request, $id){
         $user = User::find($id);
+        if ($user->email != $request->email){
+            $validator=$request->validate([
+                'email' => 'required|string|email|max:255|unique:users',
+            ]);
+        }
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->email = $request->email;

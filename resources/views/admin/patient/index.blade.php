@@ -73,6 +73,10 @@
                                             <a href="{{route('patient.edit', ['id' => $row->id])}}" class="btn btn-sm btn-dark" data-toggle="tooltip" title="Edit">
                                                 <i class="fa fa-pen"></i>
                                             </a>
+
+                                            <a id="delete" href="{{route('patient.delete', ['id' => $row->id])}}" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete">
+                                                <i class="fa fa-times"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

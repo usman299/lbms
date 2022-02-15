@@ -263,8 +263,8 @@
         e.preventDefault();
         var link = $(this).attr("href");
         swal({
-            title: "Voulez-vous supprimer?",
-            text: "Une fois supprimé, ce sera définitivement supprimé!",
+            title: "Do you want to delete?",
+            text: "Once deleted, it will be permanently deleted!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -273,7 +273,7 @@
                 if (willDelete) {
                     window.location.href = link;
                 } else {
-                    swal("Données sécurisées!");
+                    swal("Secure data!");
                 }
             });
     });

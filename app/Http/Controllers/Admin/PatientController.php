@@ -48,6 +48,7 @@ class PatientController extends Controller
         $validator=$request->validate([
 
             'email' => 'required|string|email|max:255|unique:users',
+            'u_r_num' => 'required|string|max:255|unique:users',
 
         ]);
 
@@ -108,6 +109,15 @@ class PatientController extends Controller
      public function edit($id){
         $user = User::find($id);
         return view('admin.patient.edit', compact('user'));
+    }
+     public function delete($id){
+        $user = User::find($id);
+         $user->delete();
+         $notification=array(
+             'messege'=>'Patient Details Deleted Successsfully!',
+             'alert-type'=>'error'
+         );
+         return Redirect()->back()->with($notification);
     }
 
     public function update(Request $request){

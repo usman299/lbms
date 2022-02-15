@@ -34,14 +34,34 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Unique Reference Number</label>
-                                    <input type="text" name="u_r_num" required class="form-control ref1">
+                                    <label for="basic-url">Barcode</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">LAB</span>
+                                        </div>
+                                        <input type="text" name="u_r_num" maxlength="6" class="form-control ref1 @error('u_r_num') is-invalid @enderror" id="basic-url" aria-describedby="basic-addon3">
+                                        @error('u_r_num')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>Barcode is already registered try with another</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Confirm Unique Reference Number</label>
-                                    <input type="text" name="c_r_num" oninput="checkref(this)" required class="form-control ref2">
+                                    <label for="">Confirm Barcode</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">LAB</span>
+                                        </div>
+                                        <input type="text" name="c_r_num" maxlength="6" oninput="checkref(this)" class="form-control ref2 @error('u_r_num') is-invalid @enderror" id="basic-url" aria-describedby="basic-addon3">
+                                        @error('u_r_num')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>Barcode is already registered try with another</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>

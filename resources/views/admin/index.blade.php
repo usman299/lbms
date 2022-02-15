@@ -19,7 +19,7 @@
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="">Start Date</label>
-                                    <input type="date" name="s_date" required class="form-control">
+                                    <input  type="date" name="s_date" placeholder="dd-mm-yyyy"  required class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-5">

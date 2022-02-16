@@ -34,18 +34,34 @@
             </div>
             <input type="hidden" name="creator_id" value="{{$id}}">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="">First Name</label>
-                        <input type="text" name="fname" required class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="">Last Name</label>
-                        <input type="text" name="lname" required class="form-control">
-                    </div>
-                </div>
+               <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">First Name</label>
+                                    <input type="text" name="fname" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Last Name</label>
+                                    <input type="text" name="lname" required class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Username</label>
+                                    <input id="username" type="username" class="form-control username1 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
+
+                                @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                </div>
+
+                                
+
+                            </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Date of Birth (dd/mm/yyyy)</label>

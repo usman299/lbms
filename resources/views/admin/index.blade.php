@@ -138,7 +138,7 @@
 
             <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
-        @if(Auth::user()->role == 2)
+        @if(Auth::user()->role == 1)
         <div class="row">
             <div class="col-md-12">
                 <div class="card p-4">

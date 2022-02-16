@@ -34,7 +34,7 @@
 </head>
 <body style="background-color: #e4e4e4">
 
-<h1 style="text-align: center"><img src="{{asset('img.png')}}" alt=""></h1>
+<h1 style="text-align: center"><img src="{{asset('img_2.png')}}" alt=""></h1>
 
 <table id="customers">
     <tr>
@@ -138,15 +138,11 @@
 <br>
 <table id="customers">
     <tr>
-        <td>Location</td>
-        <td>Roshni Clinic, 2-4 Victor Terrace, Bradford, BD9 4RQ</td>
-    </tr>
-    <tr>
         <td>
             Medical Practitioner
         </td>
         <td>
-            Mohammad Bilal Nazir MPHARM 2069359
+            DR Waheed Hussain MBCHB MRCGP
         </td>
     </tr>
 </table>
@@ -155,8 +151,8 @@
 <table style="width: 80%; text-align: center; margin: auto">
     <tr>
         <td>
-           <p style="font-size: 20px">Contact in any instance where it is required to cross-validate on 0333 050 7138 </p>
-            <p style="font-size: 20px; color: #0446aa">MOHRLABS is a trading name for Roshni Clinic Limited <br>   UKAS Number: 3068010333 050 7138   info@mohrlabs.com   www.mohrlabs.com     2-4 Victor Terrace, Bradford, BD9 4RQ </p>
+           <p style="font-size: 20px">Contact in any instance where it is required to cross-validate on 0333 772 1118 </p>
+                <p style="font-size: 20px; color: #0446aa">Expert Doctors is a trading name for Expert Doctors Limited <br>   UKAS Number: 23260 LAB UKAS Number: 306801 0333 772 1118   info@expertdoctors.com   www.expertdoctors.com   </p>
         </td>
         <td>
             <img src="{{asset('img_1.png')}}" alt="">

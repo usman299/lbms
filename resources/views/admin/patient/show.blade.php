@@ -129,6 +129,9 @@
                                     @endif
                                     <th>Test Date</th>
                                     <th>Test Time</th>
+                                     @if(Auth::user()->role == 0)
+                                    <th>Action</th>
+                                     @endif
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -140,6 +143,17 @@
                                         @endif
                                         <td>{{$row->test_date->format('d-m-Y')}}</td>
                                         <td>{{$row->test_time}}</td>
+                                         @if(Auth::user()->role == 0)
+                                        <td>
+                                            <a href="#" class="show-modal btn btn-sm btn-dark" data-toggle="tooltip" title="Edit"  data-id="{{$row->id}}" data-batch="{{$row->batch_no}}" data-sample="{{$row->sample}}" data-date1="{{$row->test_date->format('Y-m-d')}}" data-time="{{$row->test_time}}">
+                                                <i class="fa fa-pen"></i>
+                                            </a>
+
+                                            <a id="delete" href="{{route('batch.delete', ['id' => $row->id])}}" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                         @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -194,7 +208,7 @@
                                 <input type="time"  name="test_time" required  class="form-control">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                    <!--     <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Status </b><span class="text-danger">*</span></label>
                                 <select name="status" class="form-control" id="">
@@ -202,6 +216,72 @@
                                     <option value="2">Reject</option>
                                 </select>
                             </div>
+                        </div> -->
+
+                        <div class="col-md-12 pull-right">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Batch Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="{{route('batch.update')}}" method="post" enctype="multipart/form-data" data-parsley-validate>
+                        @csrf
+                        <input type="hidden" name="id" id="id">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Batch No</b><span class="text-danger">*</span></label>
+                                <input type="text"  name="batch_no" id="batch" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Sample</b><span class="text-danger">*</span></label>
+                                <input type="text"  name="sample" required id="sample"  class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Test Date
+                                    </b><span class="text-danger">*</span></label>
+                                <input type="date" id="date1"  name="test_date"   required class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Test Time   </b><span class="text-danger">*</span></label>
+                                <input type="time"  name="test_time" required id="time"  class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- <div class="form-group">
+                                <label for="title"><b>Status </b><span class="text-danger">*</span></label>
+                                <select name="status" class="form-control" id="">
+                                    <option value="1">Complete</option>
+                                    <option value="2">Reject</option>
+                                </select>
+                            </div> -->
                         </div>
 
                         <div class="col-md-12 pull-right">
@@ -217,7 +297,12 @@
 
         </div>
 
-    </div></div>
+    </div>
+</div>
+
+
 
 
 @endsection
+
+

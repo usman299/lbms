@@ -22,4 +22,29 @@ class BatchController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
+
+     public function delete($id){
+        $batch = Batch::find($id);
+         $batch->delete();
+         $notification=array(
+             'messege'=>'Batch Details Deleted Successsfully!',
+             'alert-type'=>'error'
+         );
+         return Redirect()->back()->with($notification);
+    }
+
+    public function update(Request $request){
+         $batch = Batch::find($request->id);
+        
+        $batch->batch_no = $request->batch_no;
+        $batch->sample = $request->sample;
+        $batch->test_date = $request->test_date;
+        $batch->test_time = $request->test_time;
+        $batch->save();
+        $notification=array(
+            'messege'=>'Details Updated Successsfully!',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
 }

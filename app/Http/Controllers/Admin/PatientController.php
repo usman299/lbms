@@ -47,7 +47,7 @@ class PatientController extends Controller
 
         $validator=$request->validate([
 
-            'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|max:255|unique:users',
             'u_r_num' => 'required|string|max:255|unique:users',
 
         ]);
@@ -62,6 +62,7 @@ class PatientController extends Controller
 
         $user->fname = $request->fname;
         $user->lname = $request->lname;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->address1 = $request->address1;

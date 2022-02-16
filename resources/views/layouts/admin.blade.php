@@ -345,6 +345,27 @@
     const element1 = document.getElementById('date-input1');
     element1.valueAsNumber = Date.now()-(new Date()).getTimezoneOffset()*60000;
 </script>
+
+<script type="text/javascript">
+  $(document).on('click', '.show-modal', function() {
+  $('#show').modal('show');
+  $('#id').val($(this).data('id'));
+  $('#batch').val($(this).data('batch'));
+  $('#sample').val($(this).data('sample'));
+  $('#date1').val($(this).data('date1'));
+  $('#time').val($(this).data('time'));
+
+   var dToday = new Date();
+    var day = ("0" + dToday.getDate()).slice(-2);
+    var month = ("0" + (dToday.getMonth()+1)).slice(-2);
+    today = dToday.getFullYear() + "-" + month + "-" + day;
+    $("#searchDate").val(today);
+   });
+  
+
+  
+
+</script>
 @yield('script')
 </body>
 </html>

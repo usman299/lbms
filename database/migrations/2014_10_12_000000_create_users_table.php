@@ -15,10 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-
+            $table->string('username')->unique();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
-            $table->string('email',128)->unique();
+            $table->string('email',128);
             $table->string('image')->default('assets/avatar.png');
             $table->string('role')->nullable(); //0=admin ; 1=Lab attendent; 2=Patient;
             //Lab attendent

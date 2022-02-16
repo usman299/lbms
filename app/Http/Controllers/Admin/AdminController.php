@@ -29,13 +29,14 @@ class AdminController extends Controller
 
         $validator=$request->validate([
 
-            'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|max:255|unique:users',
 
         ]);
 
         $user = new User();
         $user->fname = $request->fname;
         $user->lname = $request->lname;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->business_name = $request->business_name;

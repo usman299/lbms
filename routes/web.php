@@ -46,6 +46,8 @@ Route::post('/patient/store', 'Admin\PatientController@store')->name('patient.st
 Route::get('/patient/create/direct/{id}', 'Admin\PatientController@direct')->name('patient.create.direct');
 
 Route::post('/batch/store/{id}', 'Admin\BatchController@store')->name('batch.store');
+Route::get('/batch/delete/{id}', 'Admin\BatchController@delete')->name('batch.delete');
+Route::post('/batch/update', 'Admin\BatchController@update')->name('batch.update');
 
 Route::get('/certificate/{id}', function ($id){
     $user = \App\User::find($id);

@@ -19,6 +19,7 @@ class CertificateMail extends Mailable
     public function __construct($user)
     {
         $this->user = $user;
+        $this->file = $user->certifacte_link;
     }
 
     /**
@@ -29,9 +30,10 @@ class CertificateMail extends Mailable
     public function build()
     {
         return $this->from('info@codingcrust.com', 'Coding Crust Subject')
-            ->view('admin.email.certificate')
+            ->view('admin.email.email')
             ->with([
                 'user' => $this->user,
-            ]);
+            ])
+            ->attach(public_path($this->file));
     }
 }

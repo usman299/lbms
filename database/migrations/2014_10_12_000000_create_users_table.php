@@ -43,6 +43,7 @@ class CreateUsersTable extends Migration
             $table->string('wish')->nullable();
             $table->string('pcr_rate')->nullable();
             $table->string('result_date')->nullable();
+            $table->string('certifacte_link')->nullable();
 
             $table->integer('status')->default(0);
 

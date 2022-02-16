@@ -1,6 +1,11 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <style>
         .customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -56,7 +61,7 @@
         <td>DOB</td>
         <td>{{$user->dob}}</td>
         <td>Sample Time</td>
-        <td{{$user->swab_time}}</td>
+        <td>{{$user->swab_time}}</td>
     </tr>
     <tr>
         <td>Passport Number</td>
@@ -148,7 +153,7 @@
 </table>
 
 <br>
-<table style="width: 80%; text-align: center; margin: auto">
+<table style="width: 100%; text-align: center; margin: auto">
     <tr>
         <td>
            <p style="font-size: 20px">Contact in any instance where it is required to cross-validate on 0333 772 1118 </p>
@@ -162,5 +167,3 @@
 
 </body>
 </html>
-
-

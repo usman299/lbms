@@ -27,7 +27,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Patient Details # <b>{{$user->u_r_num}}</b></h3>
                             @if(Auth::user()->role == 0)
-                                <a target="_blank" href="{{route('certificate.view', ['id' => $user->id])}}"><button class="btn btn-warning btn-sm float-right">Download Certificate
+                                <a target="_blank" href="{{asset($user->certificate_link)}}"><button class="btn btn-warning btn-sm float-right">Download Certificate
                                     </button></a>
                                 <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-sm float-right mr-2">ADD TO LAB</button>
                              @endif

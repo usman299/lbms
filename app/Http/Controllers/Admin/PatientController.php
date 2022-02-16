@@ -100,14 +100,14 @@ class PatientController extends Controller
         $user->update();
 
         $destinationPath = 'records';
-        $taxform_name = 'facture-'.$user->id.'.pdf';
+        $taxform_name = 'certificate-'.$user->id.'.pdf';
         $filepath = $destinationPath.'/'.$taxform_name;
         $pdf = PDF::loadView('admin.email.certificate',compact('user'));
         $pdf->setPaper('A4', 'portrait');
         $pdf->stream();
         file_put_contents($filepath, $pdf->output());
 
-        $user->certifacte_link = $filepath;
+        $user->certificate_link = $filepath;
         $user->update();
 
         Mail::to($user->email)->send(new CertificateMail($user));

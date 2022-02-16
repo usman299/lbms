@@ -2,28 +2,28 @@
 <html>
 <head>
     <style>
-        #customers {
+        .customers {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-            width: 80%;
+            width: 100%;
             margin: auto;
             border: 2px solid #0446aa;
         }
 
-        #customers td, #customers th {
+        .customers td, #customers th {
             border: 1px solid #ddd;
             padding: 8px;
         }
 
-        #customers tr:nth-child(even) {
+        .customers tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        #customers tr:hover {
+        .customers tr:hover {
             background-color: #ddd;
         }
 
-        #customers th {
+        .customers th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
@@ -36,7 +36,7 @@
 
 <h1 style="text-align: center"><img src="{{asset('img_2.png')}}" alt=""></h1>
 
-<table id="customers">
+<table class="customers">
     <tr>
         <th colspan="4" style="text-align: center">COVID-19 PCR TEST/FIT TO FLY CERTIFICATE</th>
     </tr>
@@ -72,7 +72,7 @@
     </tr>
 </table>
 <br>
-<table id="customers">
+<table class="customers">
     <tr>
         <td>Assay</td>
         <td>Result</td>
@@ -90,7 +90,7 @@
 </table>
 
 <br>
-<table id="customers">
+<table class="customers">
     <tr>
         <td>Result Interpretation</td>
     </tr>
@@ -108,7 +108,7 @@
 </table>
 
 <br>
-<table id="customers">
+<table class="customers">
     <tr>
         <td>Analysis Notes</td>
     </tr>
@@ -125,7 +125,7 @@
 </table>
 
 <br>
-<table id="customers">
+<table class="customers">
     <tr>
         <td>Comments (if applicable)</td>
     </tr>
@@ -136,7 +136,7 @@
 </table>
 
 <br>
-<table id="customers">
+<table class="customers">
     <tr>
         <td>
             Medical Practitioner

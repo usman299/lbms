@@ -21,13 +21,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Unique Reference Number</label>
+                        <label for="">Barcode</label>
                         <input type="text" name="u_r_num" required class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Confirm Unique Reference Number</label>
+                        <label for="">Confirm Barcode</label>
                         <input type="text" name="c_r_num" required class="form-control">
                     </div>
                 </div>
@@ -411,10 +411,10 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Swab Time (hh:mm)</label>
-                        <input type="time" name="swab_time" required class="form-control">
+                        <input type="text" name="swab_time" required class="form-control">
                     </div>
                 </div>
-                <div class="col-md-6">
+                {{--<div class="col-md-6">
                     <div class="form-group">
                         <label for="">I wish to participate in the Test to Release or Day 2 / Day 8
                             scheme</label>
@@ -423,7 +423,7 @@
                             <option value="No">No</option>
                         </select>
                     </div>
-                </div>
+                </div>--}}
             </div>
             <button type="submit" class="btn btn-primary">Sauvegarder</button>
         </div>

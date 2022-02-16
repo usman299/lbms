@@ -444,7 +444,7 @@
                                     <input type="time" name="swab_time" required class="form-control" value="{{$user->swab_time}}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                           {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">I wish to participate in the Test to Release or Day 2 / Day 8
                                         scheme</label>
@@ -454,7 +454,7 @@
                                         <option value="No">No</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                         <button type="submit" class="btn btn-primary">Update Patient</button>
                     </div>

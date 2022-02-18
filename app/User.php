@@ -20,7 +20,7 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    protected $dates = ['dob', 'swab_date'];
+    protected $dates = ['dob', 'swab_date','result_date'];
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -55,25 +55,28 @@
         <td>Surname</td>
         <td>{{$user->lname}}</td>
         <td>Sample Date</td>
-        <td>{{$user->swab_date}}</td>
+        <td>{{$user->swab_date->format('d/m/Y')}}</td>
     </tr>
     <tr>
         <td>DOB</td>
-        <td>{{$user->dob}}</td>
+        <td>{{$user->dob->format('d/m/Y')}}</td>
         <td>Sample Time</td>
         <td>{{$user->swab_time}}</td>
     </tr>
     <tr>
         <td>Passport Number</td>
         <td>{{$user->passport}}</td>
-        <td>Date Tested</td>
-        <td>{{$user->created_at}}</td>
+        <td>Test Date and Time</td>
+        @php
+        $testdate = \App\Batch::where('patient_id', $user->id)->first();
+        @endphp
+        <td>{{$testdate->test_date->format('d/m/Y')}} {{$testdate->test_time}}</td>
     </tr>
     <tr>
         <td>Sample Barcode ID</td>
         <td>{{$user->u_r_num}}</td>
         <td>Dated Result Issued</td>
-        <td>{{$user->result_date}}</td>
+        <td>{{$user->result_date->format('d/m/Y')}}</td>
     </tr>
 </table>
 <br>
@@ -123,7 +126,7 @@
                 sample specimen supplied and does not provide a guarantee tothe health status of individuals.If your health
                 status has changed since the sample specimen wastaken, or you have symptoms, or your condition worsens,
                 please contact your GP or NHS111.Ensure you follow current government guidelines.The above tests are carried
-                out via CE-IVDcertified testing kits using validated methods by Roshni Clinic Labs in-line with ISO15189,
+                out via CE-IVDcertified testing kits using validated methods by Expert Doctors Labs in-line with ISO15189,
                 MedicalLaboratories – Requirements for quality and competence.
             </td>
     </tr>

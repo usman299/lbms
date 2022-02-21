@@ -85,6 +85,19 @@
                     </div>
 
                     <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>User Name</b><span class="text-danger">*</span></label>
+                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{$user->username}}"  required autocomplete="username">
+
+                                @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="title"><b>Password</b><span class="text-danger">*</span></label>
                             <input type="password"   name="password" placeholder="Password" class="form-control">

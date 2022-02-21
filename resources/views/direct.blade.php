@@ -34,20 +34,22 @@
             </div>
             <input type="hidden" name="creator_id" value="{{$id}}">
             <div class="row">
-               <div class="col-md-4">
+               <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">First Name</label>
                                     <input type="text" name="fname" required class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Last Name</label>
                                     <input type="text" name="lname" required class="form-control">
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                             <input type="hidden" name="username" value="{{ rand(1,1000000) }}">
+
+                            {{--<div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Username</label>
                                     <input id="username" type="username" class="form-control username1 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
@@ -61,7 +63,7 @@
 
                                 
 
-                            </div>
+                            </div>--}}
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Date of Birth (dd/mm/yyyy)</label>
@@ -83,7 +85,7 @@
                         <input type="text" name="phone" required class="form-control">
                     </div>
                 </div>
-                <div class="col-md-6">
+               <!--  <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Ethnicity</label>
                         <select id="ethnicity" name="ethnicity"
@@ -122,19 +124,19 @@
                             </option>
                         </select>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Email</label>
                         <input type="email" name="email" required class="form-control">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Confirm Email</label>
                         <input type="email" name="title" required class="form-control">
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Passport Number (If required for travel)</label>
@@ -441,7 +443,7 @@
                     </div>
                 </div>--}}
             </div>
-            <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            <button type="submit" class="btn btn-primary">Save Patient</button>
         </div>
     </form>
 </div>

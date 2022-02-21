@@ -171,7 +171,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>Sur Name</b><span class="text-danger">*</span></label>
+                                <label for="title"><b>Surname</b><span class="text-danger">*</span></label>
                                 <input type="text"  name="lname" required  class="form-control">
                             </div>
                         </div>

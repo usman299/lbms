@@ -32,8 +32,7 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <!-- overlayScrollbars -->
 </head>
-<!-- <body class="hold-transition sidebar-mini layout-fixed"> -->
-    <body class="hold-transition skin-blue sidebar-collapse sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
     <!-- Preloader -->
@@ -365,16 +364,6 @@
   
 
   
-
-</script>
-
-<script type="text/javascript">
-  $(document).on('click', '.showmodal', function() {
-  $('#addlab').modal('show');
-  $('#id').val($(this).data('id'));
-
-
-  });
 
 </script>
 @yield('script')

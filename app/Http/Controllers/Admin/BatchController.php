@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class BatchController extends Controller
 {
-    public function store(Request $request){
+    public function store(Request $request, $id){
         $batch = new Batch();
-        $batch->patient_id = $request->id;
+        $batch->patient_id = $id;
         $batch->batch_no = $request->batch_no;
         $batch->sample = $request->sample;
         $batch->test_date = $request->test_date;

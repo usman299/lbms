@@ -62,12 +62,11 @@ class AdminController extends Controller
         $user = User::find($id);
         if ($user->email != $request->email){
             $validator=$request->validate([
-                'username' => 'required|string|max:255|unique:users',
+                'email' => 'required|string|email|max:255|unique:users',
             ]);
         }
         $user->fname = $request->fname;
         $user->lname = $request->lname;
-        $user->username = $request->username;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->business_name = $request->business_name;

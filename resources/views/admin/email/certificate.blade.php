@@ -68,11 +68,9 @@
         <td>{{$user->passport}}</td>
         <td>Test Date and Time</td>
         @php
-        $testdate = \App\Batch::where('patient_id', $user->id)->first()??'';
+        $testdate = \App\Batch::where('patient_id', $user->id)->first();
         @endphp
-        @if($testdate != '')
         <td>{{$testdate->test_date->format('d/m/Y')}} {{$testdate->test_time}}</td>
-        @endif
     </tr>
     <tr>
         <td>Sample Barcode ID</td>

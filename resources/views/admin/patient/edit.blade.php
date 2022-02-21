@@ -35,13 +35,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Barcode</label>
+                                    <label for="">Unique Reference Number</label>
                                     <input type="text" name="u_r_num"  class="form-control" value="{{$user->u_r_num}}" readonly="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Confirm Barcode</label>
+                                    <label for="">Confirm Unique Reference Number</label>
                                     <input type="text" name="c_r_num"  class="form-control" value="{{$user->u_r_num}}" readonly="">
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     <input type="text" name="phone" required class="form-control" value="{{$user->phone}}">
                                 </div>
                             </div>
-                            <!-- <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Ethnicity</label>
                                     <select id="ethnicity" name="ethnicity"
@@ -121,7 +121,7 @@
                                         </option>
                                     </select>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Email</label>
@@ -141,12 +141,12 @@
                                 @enderror
 
                             </div>
-                           <!--  <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Confirm Email</label>
                                     <input type="email" name="title" required class="form-control" value="{{$user->email}}">
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Passport Number (If required for travel)</label>

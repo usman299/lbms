@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class BatchController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function store(Request $request){
         $batch = new Batch();
         $batch->patient_id = $request->id;
@@ -35,7 +39,7 @@ class BatchController extends Controller
 
     public function update(Request $request){
          $batch = Batch::find($request->id);
-        
+
         $batch->batch_no = $request->batch_no;
         $batch->sample = $request->sample;
         $batch->test_date = $request->test_date;

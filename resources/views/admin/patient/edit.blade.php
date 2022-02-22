@@ -25,7 +25,7 @@
                 <div class="card-header">
                     <h2 class="card-title"><b><u>Edit Patient</u></b></h2>
 
-                    
+
                 </div>
                 <form action="{{route('patient.update')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
                 @csrf
@@ -431,7 +431,7 @@
                                     <input type="text" name="postal" required class="form-control" value="{{$user->postal}}">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Swab Date (dd/mm/yyyy)</label>
@@ -441,7 +441,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Swab Time (hh:mm)</label>
-                                    <input type="time" name="swab_time" required class="form-control" value="{{$user->swab_time}}">
+                                    <input type="text" name="swab_time" required class="form-control" value="{{$user->swab_time}}">
                                 </div>
                             </div>
                            {{-- <div class="col-md-6">
@@ -464,5 +464,5 @@
                  </div>
                 <!-- /.container-fluid -->
     </section>
-   
+
 @endsection

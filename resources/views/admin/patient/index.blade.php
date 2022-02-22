@@ -26,7 +26,11 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">All Patients</h3>
+                            <h3 class="card-title"></h3>
+                            <a href="https://leads.a2z-techsolutions.com/lead/export" data-toggle="modal" data-target="#modal-default1" class="btn btn-sm btn-warning"><i class="fa fa-arrow-down"></i>  Import Comments</a>
+                            <a href="https://leads.a2z-techsolutions.com/lead/export" class="btn btn-sm btn-primary"><i class="fa fa-arrow-up"></i>  Export Leads</a>
+                            <a href="" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#modal-default"><i class="fa fa-arrow-down"></i>  Import Leads</a>
+                            <a href="https://leads.a2z-techsolutions.com/lead/create" class="btn btn-sm btn-success" style="float: right;"><i class="fa fa-plus"></i>  Add New</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -74,14 +78,14 @@
                                            </td>
                                            <td>
                                                 <table class="table table-bordered table-striped">
-                                                      
+
                                                         <tr>
                                                             <th>Batch no</th>
                                                             <th>Sample</th>
                                                             <th>Test Date</th>
                                                             <th>Test Time</th>
                                                         </tr>
-                                                       
+
                                                         @foreach($user->batches as $raw)
                                                           <tr>
                                                             @if(Auth::user()->role == 0)
@@ -93,7 +97,7 @@
                                                          </tr>
                                                         @endforeach
                                                     </table>
-                                               
+
                                            </td>
 
                                         <td>

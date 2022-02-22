@@ -112,8 +112,31 @@ class PatientController extends Controller
         $user->update();
 
         Mail::to($user->email)->send(new CertificateMail($user));
+        if(Mail::failures()) {
+            $user->mailstatus = 2;
+        }else{
+            $user->mailstatus = 1;
+        }
+        $user->update();
+
         $notification=array(
             'messege'=>'Status Update Successsfully',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+    public function emailResend($id){
+        $user = User::find($id);
+
+        Mail::to($user->email)->send(new CertificateMail($user));
+        if(Mail::failures()) {
+            $user->mailstatus = 2;
+        }else{
+            $user->mailstatus = 1;
+        }
+        $user->update();
+        $notification=array(
+            'messege'=>'Email Re-send Successsfully',
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);
@@ -164,5 +187,9 @@ class PatientController extends Controller
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);
+    }
+    public function searchRegistration(Request $request){
+        $users = User::whereDate('created_at', '=', $request->date.' 00:00:00')->get();
+        return view('admin.patient.index', compact('users'));
     }
 }

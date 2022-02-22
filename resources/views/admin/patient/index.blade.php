@@ -27,10 +27,31 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"></h3>
-                            <a href="https://leads.a2z-techsolutions.com/lead/export" data-toggle="modal" data-target="#modal-default1" class="btn btn-sm btn-warning"><i class="fa fa-arrow-down"></i>  Import Comments</a>
-                            <a href="https://leads.a2z-techsolutions.com/lead/export" class="btn btn-sm btn-primary"><i class="fa fa-arrow-up"></i>  Export Leads</a>
-                            <a href="" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#modal-default"><i class="fa fa-arrow-down"></i>  Import Leads</a>
-                            <a href="https://leads.a2z-techsolutions.com/lead/create" class="btn btn-sm btn-success" style="float: right;"><i class="fa fa-plus"></i>  Add New</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="https://leads.a2z-techsolutions.com/lead/export" data-toggle="modal" data-target="#modal-default1" class="btn btn-sm btn-warning"><i class="fa fa-arrow-down"></i>  Import Comments</a>
+                                    <a href="https://leads.a2z-techsolutions.com/lead/export" class="btn btn-sm btn-primary"><i class="fa fa-arrow-up"></i>  Export Leads</a>
+                                    <a href="" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#modal-default"><i class="fa fa-arrow-down"></i>  Import Leads</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="{{route('search.registration')}}" method="POST">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4 style="float: right;" class="mt-1">Search by Registration: </h4>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="date" name="date" style="float: right;" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="btn btn-sm btn-success mt-1" style="float: left;"><i class="fa fa-search"></i> Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,6 +68,7 @@
                                     <th class="text-center">LAB Details</th>
                                     <th>Action</th>
                                     @if(Auth::user()->role == 0)
+                                    <th>Mail Status</th>
                                     <th>Admin Tools</th>
                                     @endif
                                 </tr>
@@ -115,12 +137,25 @@
                                          </td>
                                          @if(Auth::user()->role == 0)
                                          <td>
+                                             @if($row->mailstatus == 0)
+                                                 <small class="badge badge-primary"><i class="far fa-clock"></i> Awaiting
+                                                 </small>
+                                             @elseif($row->mailstatus ==1)
+                                                 <small class="badge badge-success">Delivered</small>
+                                             @elseif($row->mailstatus ==2)
+                                                 <small class="badge badge-danger">Failed</small>
+                                             @endif
+                                         </td>
+                                         <td>
                                           <a href="#" class="showmodal btn btn-sm btn-primary" data-toggle="tooltip" title="Add to Lab"  data-id="{{$row->id}}" >
                                                 Add to Lab
                                             </a>
 
                                             @if(!empty($user->certificate_link))
                                             <a target="_blank" href="{{asset($user->certificate_link)}}"><button class="btn btn-warning btn-sm "><i class="fa fa-download"> </i> Certificate
+                                                </button>
+                                            </a>
+                                            <a href="{{route('email.resend', ['id' => $user->id])}}"><button class="btn btn-success btn-sm "><i class="fa fa-mail-bulk"> </i> Resend Email
                                                 </button>
                                             </a>
                                            @endif

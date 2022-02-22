@@ -165,7 +165,9 @@
                 <p style="font-size: 20px; color: #0446aa">Expert Doctors is a trading name for Expert Doctors Limited <br>   UKAS Number: 23260 LAB UKAS Number: 306801 0333 772 1118   info@expertdoctors.com   www.expertdoctors.com   </p>
         </td>
         <td>
-            <img src="{{asset('img_1.png')}}" alt="">
+            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate(asset('certificate/'.$user->id))) !!} ">
+
+{{--            {!! QrCode::size(250)->generate(asset('certificate/'.$user->id)); !!}--}}
         </td>
     </tr>
 </table>

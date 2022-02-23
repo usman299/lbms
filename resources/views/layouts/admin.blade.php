@@ -106,17 +106,23 @@
                         </a>
 
                     </li>
-                    @if(Auth::user()->role==0)
-                    <li class="nav-item menu-open">
-                        <a href="{{route('admin.lab.index')}}" class="nav-link {{  request()->is('admin/lab/index') ? 'active':'' }}">
-                            <i class="nav-icon fa fa-handshake"></i>
-                            <p>
-                                Partners
-                            </p>
-                        </a>
+                    @php
+                    $user = Auth::user();
+                    @endphp
 
-                    </li>
+                    @if($user->role==0)
+                        @if($user->partner  == 1)
+                        <li class="nav-item menu-open">
+                            <a href="{{route('admin.lab.index')}}" class="nav-link {{  request()->is('admin/lab/index') ? 'active':'' }}">
+                                <i class="nav-icon fa fa-handshake"></i>
+                                <p>
+                                    Partners
+                                </p>
+                            </a>
+                        </li>
+                        @endif
                     @endif
+                    @if($user->patients  == 1)
                     <li class="nav-item menu-open">
                         <a href="{{route('patients')}}" class="nav-link {{  request()->is('patients') ? 'active':'' }}">
                             <i class="nav-icon fas fa-medkit"></i>
@@ -124,8 +130,9 @@
                                Patients
                             </p>
                         </a>
-
                     </li>
+                    @endif
+                    @if($user->add_patients  == 1)
                     <li class="nav-item menu-open">
                         <a href="{{route('patient.create')}}" class="nav-link {{  request()->is('patient/create') ? 'active':'' }}">
                             <i class="nav-icon fas  fa-plus"></i>
@@ -133,8 +140,9 @@
                                Add Patient
                             </p>
                         </a>
-
                     </li>
+                    @endif
+                    @if($user->users == 1)
                     <li class="nav-item menu-open">
                         <a href="{{route('users')}}" class="nav-link {{  request()->is('users') ? 'active':'' }}">
                             <i class="nav-icon fas  fa-user"></i>
@@ -143,6 +151,7 @@
                             </p>
                         </a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"

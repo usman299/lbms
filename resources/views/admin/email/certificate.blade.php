@@ -39,7 +39,7 @@
 </head>
 <body style="background-color: #e4e4e4">
 
-<h1 style="text-align: center"><img src="{{asset('img_2.png')}}" alt=""></h1>
+<h1 style="text-align: center"><img style="height: 100px" src="{{asset('img_2.png')}}" alt=""></h1>
 
 <table class="customers">
     <tr>
@@ -166,7 +166,7 @@
         </td>
         <td>
             <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate(asset('certificate/'.$user->id))) !!} ">
-
+{{--            <img style="width: 250px; height: 250px" src="https://www.qrcode-monkey.com/img/default-preview-qr.svg" alt="">--}}
 {{--            {!! QrCode::size(250)->generate(asset('certificate/'.$user->id)); !!}--}}
         </td>
     </tr>

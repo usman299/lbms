@@ -107,7 +107,7 @@ class PatientController extends Controller
         $taxform_name = 'certificate-'.$user->id.'.pdf';
         $filepath = $destinationPath.'/'.$taxform_name;
         $pdf = PDF::loadView('admin.email.certificate',compact('user'));
-        $pdf->setPaper('A4', 'portrait');
+        $pdf->setPaper('legal', 'portrait');
         $pdf->stream();
         file_put_contents($filepath, $pdf->output());
 

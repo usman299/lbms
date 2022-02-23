@@ -29,9 +29,9 @@
                             <h3 class="card-title"></h3>
                             <div class="row">
                                 <div class="col-md-6">
-{{--                                    <a href="https://leads.a2z-techsolutions.com/lead/export" data-toggle="modal" data-target="#modal-default1" class="btn btn-sm btn-warning"><i class="fa fa-arrow-down"></i>  Import Comments</a>--}}
-{{--                                    <a href="https://leads.a2z-techsolutions.com/lead/export" class="btn btn-sm btn-primary"><i class="fa fa-arrow-up"></i>  Export Leads</a>--}}
-{{--                                    <a href="" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#modal-default"><i class="fa fa-arrow-down"></i>  Import Leads</a>--}}
+                                        {{-- <a href="https://leads.a2z-techsolutions.com/lead/export" data-toggle="modal" data-target="#modal-default1" class="btn btn-sm btn-warning"><i class="fa fa-arrow-down"></i>Import Comments</a>--}}
+                                    <a href="{{route('patient.export')}}" class="btn btn-sm btn-primary"><i class="fa fa-arrow-up"></i>  Export Patients</a>
+                                        {{-- <a href="" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#modal-default"><i class="fa fa-arrow-down"></i>  Import Leads</a>--}}
                                 </div>
                                 <div class="col-md-6">
                                     <form action="{{route('search.registration')}}" method="POST">

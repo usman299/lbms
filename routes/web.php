@@ -40,6 +40,7 @@ Route::post('/patient/update', 'Admin\PatientController@update')->name('patient.
 Route::get('/patient/status/{id}', 'Admin\PatientController@statusView')->name('patients.status');
 Route::get('/patient/status/{id}/{status}', 'Admin\PatientController@status')->name('patient.status');
 Route::post('/patient/store', 'Admin\PatientController@store')->name('patient.store');
+Route::get('patient/export/', 'Admin\PatientController@export')->name('patient.export');
 Route::post('/search/registration', 'Admin\PatientController@searchRegistration')->name('search.registration');
 
 Route::get('/email/resend/{id}', 'Admin\PatientController@emailResend')->name('email.resend');

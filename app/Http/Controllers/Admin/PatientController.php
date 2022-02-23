@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
+
 class PatientController extends Controller
 {
 
@@ -192,4 +195,11 @@ class PatientController extends Controller
         $users = User::whereDate('created_at', '=', $request->date.' 00:00:00')->get();
         return view('admin.patient.index', compact('users'));
     }
+
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'patients.xlsx');
+    }
+
+
 }

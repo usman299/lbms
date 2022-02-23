@@ -46,6 +46,8 @@ Route::post('/search/registration', 'Admin\PatientController@searchRegistration'
 Route::get('/email/resend/{id}', 'Admin\PatientController@emailResend')->name('email.resend');
 
 
+Route::get('/users', 'Admin\UsersController@index')->name('users');
+Route::get('/users/delete/{id}', 'Admin\UsersController@delete')->name('users.delete');
 
 Route::get('/patient/create/direct/{id}', 'Admin\PatientController@direct')->name('patient.create.direct');
 

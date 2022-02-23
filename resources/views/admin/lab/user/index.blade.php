@@ -114,28 +114,24 @@
                                 <input type="text"  name="phone" required  class="form-control">
                             </div>
                         </div>
-
                          <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Address Line 1</b><span class="text-danger">*</span></label>
                                 <input type="text"  name="address1" required  class="form-control">
                             </div>
                         </div>
-
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Address Line 2</b></span></label>
                                 <input type="text"  name="address2"   class="form-control">
                             </div>
                         </div>
-
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Postcode</b><span class="text-danger">*</span></label>
                                 <input type="text"  name="pc" required  class="form-control">
                             </div>
                         </div>
-
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Business Charge Rate For PCR</b><span class="text-danger">*</span></label>
@@ -145,9 +141,8 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>User Name</b><span class="text-danger">*</span></label>
+                                <label for="title"><b>Username</b><span class="text-danger">*</span></label>
                                 <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
-
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -155,14 +150,12 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>Password</b><span class="text-danger">*</span></label>
                                 <input type="password"  name="password" required class="form-control">
                             </div>
                         </div>
-
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="title"><b>First Name</b><span class="text-danger">*</span></label>
@@ -175,17 +168,7 @@
                                 <input type="text"  name="lname" required  class="form-control">
                             </div>
                         </div>
-
-
-
-
-
-
                         <input type="hidden" name="role" value="1">
-
-
-
-
                         <div class="col-md-12 pull-right">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block">Submit</button>

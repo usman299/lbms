@@ -135,6 +135,14 @@
                         </a>
 
                     </li>
+                    <li class="nav-item menu-open">
+                        <a href="{{route('users')}}" class="nav-link {{  request()->is('users') ? 'active':'' }}">
+                            <i class="nav-icon fas  fa-user"></i>
+                            <p>
+                               Users
+                            </p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
@@ -362,9 +370,9 @@
     today = dToday.getFullYear() + "-" + month + "-" + day;
     $("#searchDate").val(today);
    });
-  
 
-  
+
+
 
 </script>
 

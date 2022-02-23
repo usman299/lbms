@@ -196,7 +196,7 @@ class PatientController extends Controller
         return view('admin.patient.index', compact('users'));
     }
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new UsersExport, 'patients.xlsx');
     }

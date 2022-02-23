@@ -48,6 +48,11 @@ class CreateUsersTable extends Migration
             $table->integer('status')->default(0);
             $table->integer('mailstatus')->default(0);
 
+            $table->integer('partner')->default(0);
+            $table->integer('patients')->default(0);
+            $table->integer('add_patients')->default(0);
+            $table->integer('users')->default(0);
+
             $table->string('password',128)->nullable();
             $table->timestamp('email_verified_at')->nullable();
 

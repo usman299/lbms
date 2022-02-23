@@ -86,8 +86,8 @@
 
                     <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title"><b>User Name</b><span class="text-danger">*</span></label>
-                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{$user->username}}"  required autocomplete="username">
+                                <label for="title"><b>Username</b><span class="text-danger">*</span></label>
+                                <input id="username" type="username" readonly class="form-control @error('username') is-invalid @enderror" name="username" value="{{$user->username}}"  required autocomplete="username">
 
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">

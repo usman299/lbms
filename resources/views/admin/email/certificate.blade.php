@@ -35,6 +35,17 @@
             background-color: #0446aa;
             color: white;
         }
+       .w100{
+           width: 50% !important;
+           float: left;
+           text-align: center;
+       }
+        @media only screen and (max-width: 600px) {
+            .w100{
+                width: 100% !important;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body style="background-color: #e4e4e4">
@@ -158,18 +169,19 @@
 </table>
 
 <br>
+<div>
+    <div class="w100">
+        <p style="font-size: 20px">Contact in any instance where it is required to cross-validate on 0333 772 1118 </p>
+        <p style="font-size: 20px; color: #0446aa">Expert Doctors is a trading name for Expert Doctors Limited <br>   UKAS Number: 23260 LAB UKAS Number: 306801 0333 772 1118   info@expertdoctors.com   www.expertdoctors.com   </p>
+    </div>
+    <div class="w100">
+        {{--            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate(asset('certificate/'.$user->id))) !!} ">--}}
+        <img style="width: 250px; height: 250px" src="https://www.qrcode-monkey.com/img/default-preview-qr.svg" alt="">
+        {{--            {!! QrCode::size(250)->generate(asset('certificate/'.$user->id)); !!}--}}
+    </div>
+</div>
 <table style="width: 100%; text-align: center; margin: auto">
-    <tr>
-        <td>
-           <p style="font-size: 20px">Contact in any instance where it is required to cross-validate on 0333 772 1118 </p>
-                <p style="font-size: 20px; color: #0446aa">Expert Doctors is a trading name for Expert Doctors Limited <br>   UKAS Number: 23260 LAB UKAS Number: 306801 0333 772 1118   info@expertdoctors.com   www.expertdoctors.com   </p>
-        </td>
-        <td>
-            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate(asset('certificate/'.$user->id))) !!} ">
-{{--            <img style="width: 250px; height: 250px" src="https://www.qrcode-monkey.com/img/default-preview-qr.svg" alt="">--}}
-{{--            {!! QrCode::size(250)->generate(asset('certificate/'.$user->id)); !!}--}}
-        </td>
-    </tr>
+
 </table>
 
 </body>

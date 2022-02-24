@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Twilio\Rest\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,9 @@ Route::get('/users', 'Admin\UsersController@index')->name('users');
 Route::get('/users/delete/{id}', 'Admin\UsersController@delete')->name('users.delete');
 
 Route::get('/patient/create/direct/{id}', 'Admin\PatientController@direct')->name('patient.create.direct');
+
+Route::get('/settings', 'Admin\SettingsController@index')->name('settings');
+Route::post('/certificate/settings', 'Admin\SettingsController@certificateSettings')->name('certificate.settings');
 
 Route::post('/batch/store', 'Admin\BatchController@store')->name('batch.store');
 Route::get('/batch/delete/{id}', 'Admin\BatchController@delete')->name('batch.delete');

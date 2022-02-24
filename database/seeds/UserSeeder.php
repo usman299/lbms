@@ -23,5 +23,12 @@ class UserSeeder extends Seeder
             'users' => '1',
             'password' => bcrypt('password'),
         ]);
+        \App\Settings::create([
+            'logo' => 'img_2.png',
+            'footer' => 'Contact in any instance where it is required to cross-validate on 0333 772 1118
+
+Expert Doctors is a trading name for Expert Doctors Limited
+UKAS Number: 23260 LAB UKAS Number: 306801 0333 772 1118 info@expertdoctors.com www.expertdoctors.com'
+        ]);
     }
 }

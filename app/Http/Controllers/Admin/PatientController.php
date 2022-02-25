@@ -115,27 +115,27 @@ class PatientController extends Controller
         $user->certificate_link = $filepath;
         $user->update();
 
-        $account_sid = 'ACfd4c3a09c5eee9a894c966584ee03701';
-        $auth_token = '7cb8c7056b9bab04074671c24b5dc08b';
-        try {
-        $client = new Client($account_sid, $auth_token);
-        $client->messages->create(
-        // the number you'd like to send the message to
-            $user->phone,
-            array(
-                // A Twilio phone number you purchased at twilio.com/console
-                'from' => '+447862118409',
-                // the body of the text message you'd like to send
-                'body' => "You can see your report on this URL Thanks ".asset('certificate/'.$user->id)
-            )
-        );
-        } catch (Exception $e) {
-            $notification=array(
-                'messege'=>'Error '. $e->getMessage(),
-                'alert-type'=>'error'
-            );
-            return Redirect()->back()->with($notification);
-        }
+        // $account_sid = 'ACfd4c3a09c5eee9a894c966584ee03701';
+        // $auth_token = '7cb8c7056b9bab04074671c24b5dc08b';
+        // try {
+        // $client = new Client($account_sid, $auth_token);
+        // $client->messages->create(
+        // // the number you'd like to send the message to
+        //     $user->phone,
+        //     array(
+        //         // A Twilio phone number you purchased at twilio.com/console
+        //         'from' => '+447862118409',
+        //         // the body of the text message you'd like to send
+        //         'body' => "You can see your report on this URL Thanks ".asset('certificate/'.$user->id)
+        //     )
+        // );
+        // } catch (Exception $e) {
+        //     $notification=array(
+        //         'messege'=>'Error '. $e->getMessage(),
+        //         'alert-type'=>'error'
+        //     );
+        //     return Redirect()->back()->with($notification);
+        // }
         Mail::to($user->email)->send(new CertificateMail($user));
         if(Mail::failures()) {
             $user->mailstatus = 2;
